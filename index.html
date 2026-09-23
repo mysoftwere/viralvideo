@@ -17,10 +17,6 @@ content="Premium content • Unlimited access • HD quality">
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#050505;
@@ -29,7 +25,6 @@ body{
     min-height:100vh;
 }
 
-/* Main Container */
 .container{
     width:100%;
     max-width:900px;
@@ -47,7 +42,6 @@ body{
     border-radius:30px;
     font-weight:bold;
     margin:10px 0 20px;
-    box-shadow:0 5px 20px rgba(0,150,255,.25);
     transition:.2s;
 }
 
@@ -56,7 +50,7 @@ body{
     transform:scale(1.03);
 }
 
-/* Online Counter */
+/* Online */
 .online{
     color:#36e27b;
     font-size:14px;
@@ -86,7 +80,7 @@ h1{
     margin-bottom:25px;
 }
 
-/* Featured Image */
+/* Image */
 .preview{
     width:100%;
     max-width:760px;
@@ -103,7 +97,7 @@ h1{
     height:auto;
 }
 
-/* WATCH NOW Button */
+/* Watch Button */
 .watch{
     display:inline-block;
     padding:17px 55px;
@@ -233,23 +227,28 @@ footer{
 <div class="container">
 
     <!-- Telegram Button -->
+    <!-- এখানে আপনার Telegram link বসাবেন -->
+
     <a
-      class="telegram"
-      href="https://t.me/YOUR_CHANNEL"
-      target="_blank"
-      rel="noopener">
-      Join Telegram Channel
+        class="telegram"
+        href="https://t.me/YOUR_CHANNEL"
+        target="_blank"
+        rel="noopener">
+        Join Telegram Channel
     </a>
 
 
     <!-- Online Counter -->
+
     <div class="online">
         <span class="dot"></span>
-        <span id="onlineCount">1,247</span> Online Now
+        <span id="onlineCount">1,247</span>
+        Online Now
     </div>
 
 
-    <!-- Main Heading -->
+    <!-- Main Title -->
+
     <h1>
         Here's Enjoy Video IN HD
     </h1>
@@ -259,29 +258,30 @@ footer{
     </div>
 
 
-    <!-- Featured Image -->
+    <!-- YOUR GITHUB IMAGE -->
+
     <div class="preview">
 
         <img
-          src="https://via.placeholder.com/900x500/111111/ffffff?text=Featured+Content"
-          alt="Featured Content">
+            src="./watch6.png"
+            alt="Featured Content">
 
     </div>
 
 
-    <!-- WATCH NOW -->
-    <!-- Your destination link is added here -->
+    <!-- WATCH NOW BUTTON -->
 
     <a
-      class="watch"
-      href="https://enjoytlmes.blogspot.com/2026/09/html-link.html"
-      target="_blank"
-      rel="noopener">
-      WATCH NOW
+        class="watch"
+        href="https://enjoytlmes.blogspot.com/2026/09/html-link.html"
+        target="_blank"
+        rel="noopener">
+        WATCH NOW
     </a>
 
 
-    <!-- Features -->
+    <!-- FEATURES -->
+
     <div class="features">
 
         <div class="feature">
@@ -290,8 +290,8 @@ footer{
 
             <p>
                 Experience crystal clear video
-                with premium quality and
-                high resolution.
+                with premium quality and high
+                resolution.
             </p>
 
         </div>
@@ -325,7 +325,8 @@ footer{
     </div>
 
 
-    <!-- Description -->
+    <!-- DESCRIPTION -->
+
     <div class="description">
 
         Watch trending videos in high quality
@@ -336,19 +337,22 @@ footer{
     </div>
 
 
-    <!-- Click Counter -->
+    <!-- CLICK COUNTER -->
+
     <div class="clickbox">
 
         <div class="clicks">
+
             Clicks:
             <span id="clickCount">0</span>/5
+
         </div>
 
         <div class="progress">
 
             <div
-              class="progressbar"
-              id="progressBar">
+                class="progressbar"
+                id="progressBar">
             </div>
 
         </div>
@@ -358,7 +362,8 @@ footer{
 </div>
 
 
-<!-- Footer -->
+<!-- FOOTER -->
+
 <footer>
 
     © <span id="year"></span>.
@@ -410,33 +415,29 @@ setInterval(function(){
 let clicks = 0;
 
 const watchButton =
-    document.getElementById("watchButton");
+    document.querySelector(".watch");
 
-if(watchButton){
+watchButton.addEventListener(
+    "click",
+    function(){
 
-    watchButton.addEventListener(
-        "click",
-        function(){
+        clicks++;
 
-            clicks++;
-
-            if(clicks > 5){
-                clicks = 5;
-            }
-
-            document.getElementById(
-                "clickCount"
-            ).textContent = clicks;
-
-            document.getElementById(
-                "progressBar"
-            ).style.width =
-                (clicks * 20) + "%";
-
+        if(clicks > 5){
+            clicks = 5;
         }
-    );
 
-}
+        document.getElementById(
+            "clickCount"
+        ).textContent = clicks;
+
+        document.getElementById(
+            "progressBar"
+        ).style.width =
+            (clicks * 20) + "%";
+
+    }
+);
 
 </script>
 
